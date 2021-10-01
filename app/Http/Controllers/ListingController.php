@@ -18,6 +18,8 @@ class ListingController extends Controller
 
     public function __invoke()
     {
+        /*var_dump($this->movieRepository->all());
+        die();*/
         return new JsonResponse([
             'status' => 'success',
             'collection' => $this->movieRepository->all()->map([MoviesToDto::class, 'provideTransformer']),
