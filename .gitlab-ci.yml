@@ -1,8 +1,6 @@
-before_script:
-  - bash ci/docker_install.sh > /dev/null
-
 stages:
   - phpstan
+  - test
 
 cache:
   key: $CI_COMMIT_REF_SLUG
@@ -20,6 +18,9 @@ phpstan:
     reports:
       codequality: phpstan.json
 
+before_script:
+  - bash ci/docker_install.sh > /dev/null
+  
 test:8.0:
   image: php:8.0
   script:
