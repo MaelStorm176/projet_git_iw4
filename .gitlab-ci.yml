@@ -1,8 +1,26 @@
 before_script:
-  # Install dependencies
   - bash ci/docker_install.sh > /dev/null
 
-  test:8.0:
+stages:
+  - phpstan
+
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - .tmp/
+    - vendor/
+
+phpstan:
+  stage: phpstan
+  image: ghcr.io/phpstan/phpstan
+  script:
+    - analyse --no-progress --error-format gitlab > phpstan.json
+  artifacts:
+    when: always
+    reports:
+      codequality: phpstan.json
+
+test:8.0:
   image: php:8.0
   script:
     - phpunit --configuration phpunit_myapp.xml

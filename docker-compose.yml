@@ -38,7 +38,7 @@ services:
     container_name: "composer_container_8"
     volumes:
       - .:/app
-    command: bash -c "composer install && composer update"
+    command: bash -c "composer install && composer update && composer require --dev phpstan/phpstan"
 
   phpmyadmin:
     depends_on:
