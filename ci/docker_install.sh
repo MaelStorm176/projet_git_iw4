@@ -16,4 +16,6 @@ chmod +x /usr/local/bin/phpunit
 #install composer
 curl -s https://getcomposer.org/installer
 
+sudo mv composer.phar /usr/local/bin/composer
+
 composer install
