@@ -18,7 +18,7 @@
   <summary>Table de matières  </summary>
   <ol>
     <li>
-      <a href="#about-the-project">A propos du projet</a>
+      <a href="#about-the-project">À propos du projet</a>
       <ul>
         <li><a href="#Contexte du travail">Contexte du travail</a></li>
       </ul>
@@ -26,7 +26,7 @@
         <li><a href="#Tarvail demandé">Travail demandé</a></li>
       </ul>
     </li>
-    <li> <a href="#les outils utilisé">les outils utilisé </a></li>
+    <li> <a href="#les outils utilisé">Les outils utilisés </a></li>
     <li> <a href="#Installation">Installation </a></li>
     <li><a href="#Gitflow">Gitflow</a></li>
     <li><a href="#Gitlab CI">Gitlab CI</a></li>
@@ -41,14 +41,14 @@
 
 
 
-## A propos du projet:
+## À propos du projet:
 ### Contexte du travail: 
 
 
  Une entreprise de Service numériques (ENS), nous a demandé de mettre en place un projet fraîchement acquis par la société cliente, et accorder l'ajoute 
  de nouvelles fonctionnalités.   
 
-### Tarvail demandé:
+### Travail demandé:
 * Créer un git, et fournir l'accès à deux git et synchronisé le code source
 * Écrire un README détaillé 
 * Réaliser un Gitlabrepository, Gitlab Boards, Gitlab Issues, CI et Github repository 
@@ -60,15 +60,15 @@
 * Mettre en place un outil d'analyse statique 
 * Mettre en place et lancement de tests unitaires 
 * Mettre à jour la version de php 5.6 vers la version récente 8.0
-* Céer d'un endpoint permettant de récupérer l'heure courante 
+* Créer d'un endpoint permettant de récupérer l'heure courante 
 * Configuration et installation de Xdebug dans l'image Docker 
 * Configuration de Gitlab Service Desk
 * Utilisation de hooks git pour valider les commits localement 
 * Modification du webservice 
 
 
-### les outils utilisés: 
-Pour réaliser le projet on a utilsé plusieurs outils: 
+### Les outils utilisés: 
+Pour réaliser le projet on a utilisé plusieurs outils: 
 
 * [GitLab](/https://gitlab.com)
 * [GitHub](https://github.com)
@@ -80,30 +80,35 @@ Pour réaliser le projet on a utilsé plusieurs outils:
 <!-- Installation-->
 ### Installation
 
-1. Creation de un nouveau projet, on la nomé "projet_git". Par défaut, Gitlab et Github nous a donneé la possibilité avec un compte gratuit d’attribuer un accès vers repo de code en privé, interne ou publique.
+1. Création d'un projet, on la nomé "projet_git". Par défaut, Gitlab et Github nous a donnée la possibilité avec un compte gratuit d’attribuer un accès vers repo de code en privé, interne ou publique.
 Par la suite on peut directement cloner notre projet et ajouter le fichier README.md
-2. Cloner le dépot 
+2. Cloner le dépôt 
    ```sh
    git clone git@gitlab.com:mael.jamin/projet_git.git
    ```
- 3.  on a réinitialiser le projet avec la commande suivante: 
+2.1 Lancer le projet
+	```sh
+   	make up
+   	```
+
+ 3.  On a réinitialisé le projet avec la commande suivante: 
  ```sh 
   git init
   ```
 
-on a utilser la commande suivante dans le but d'enregistre les modifications dans les référentiel 
+On a utilser la commande suivante dans le but d'enregistrer les modifications dans les référentiels 
    ```sh 
   git commit -m "message du commit"
   ```
 
-la commande suivante: 
+La commande suivante: 
   ```sh 
   git add
   ```
-  pour ajouter tout les modification de tous les fichiers
+  pour ajouter toutes les modifications de tous les fichiers
 
 ## Gitflow (Workflow): 
-git-flow est un modèle de branche dont le but est de créer une branche de fonctionnalité et en attendent que la fonctionnalité soit terminée pour la merger à la branche principale.
+Git-flow est un modèle de branche dont le but est de créer une branche de fonctionnalité et en attendent que la fonctionnalité soit terminée pour la merger à la branche principale.
 
 Dans notre projet on a utilisé deux branches : 
  - "main" 
@@ -117,8 +122,8 @@ Pour chaque feature de ce projet une sous-branche de develop est créée
 
 <!-- GitLab CI -->
 ## GitLab CI
-Creation de pipeline de déploiement qui permet d'automatiser les étapes de test et deploiement.
-- creer un fichier nommé .gitlab-ci.yml
+Création de pipeline de déploiement qui permet d'automatiser les étapes de test et déploiement.
+- Créer un fichier nommé .gitlab-ci.yml
  ```sh
  touch .gitlab-ci.yml && vi .gitlab-ci.yml
 ```
@@ -138,7 +143,7 @@ Le contenu de fichier:
 * Stage nous permet de définir nos différentes étapes au sein de la pipeline.
 * Cache nous permet ici de garder en cache nos node_modules pour éviter d avoir à les re-télécharger à chaque fois.
 
-Enfin on a commité le tout :
+Enfin on a comité le tout :
 ```sh
 git add .
 git commit -m "build stage"
@@ -148,14 +153,14 @@ git push origin master
 
 
 ## Git remote: 
-git remote sont but est de créer et d'afficher et d supprimer des connexions avec d'autre dépots
+git remote sont but est de créer et d'afficher et d supprimer des connexions avec d'autre dépôts.
 
 ## Les licences : 
-Les licences open source c'est une licence de logiciel dont le code source est mis a la disposition du grand public et qui peut être partagé et modifié
+Les licences open source c'est une licence de logiciel dont le code source est mis a la disposition du grand public et qui peut être partagé et modifié.
 
 
 ## Docker: 
-c'est une technologie de conteneurisation qui permet la création et l'utilisation de conteneurs
+c'est une technologie de conteneurisation qui permet la création et l'utilisation de conteneurs. 
 
 ## Heroku : 
 c'est une plateforme en tant que service permettant de déployer des applications sur le cloud 
