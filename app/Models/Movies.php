@@ -10,6 +10,7 @@ class Movies extends Model
 
     protected $fillable = [
     'name',
-    'type'
+    'type',
+    'timestamp'
     ];
 }
