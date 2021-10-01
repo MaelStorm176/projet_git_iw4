@@ -14,7 +14,7 @@ curl --location --output /usr/local/bin/phpunit "https://phar.phpunit.de/phpunit
 chmod +x /usr/local/bin/phpunit
 
 #install composer
-curl -s https://getcomposer.org/installer | php
+curl -s https://getcomposer.org/installer
 mv composer.phar /usr/local/bin/composer  
 
 composer install
