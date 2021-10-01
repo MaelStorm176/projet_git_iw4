@@ -1,8 +1,8 @@
-image: php:8.0-fpm
+before_script:
+  # Install dependencies
+  - bash ci/docker_install.sh > /dev/null
 
-stages:
-  - test
-
-job:test:
-  stage: test
-  script: echo "ok"
+  test:8.0:
+  image: php:8.0
+  script:
+    - phpunit --configuration phpunit_myapp.xml
