@@ -2,7 +2,7 @@ version: '3.1'
 services:
   db:
     image: "mysql:5.6"
-    container_name: "db_container"
+    container_name: "db_container_8"
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
@@ -13,10 +13,11 @@ services:
 
   web:
     build: ./.docker/apache
-    container_name: "apache_container"
+    container_name: "apache_container_8"
     env_file:
       - ./.env
     depends_on:
+      - composer
       - php
       - db
     ports:
@@ -28,13 +29,13 @@ services:
 
   php:
     image: php:8.0-fpm
-    container_name: "php_container"
+    container_name: "php_container_8"
     volumes:
       - .:/var/www/html/
 
   composer:
     image: composer:2.1.8
-    container_name: "composer_container"
+    container_name: "composer_container_8"
     volumes:
       - .:/app
     command: bash -c "composer install && composer update"
@@ -43,7 +44,7 @@ services:
     depends_on:
       - db
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_container
+    container_name: "phpmyadmin_container_8"
     restart: always
     environment:
       PMA_HOST: db
