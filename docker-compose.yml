@@ -12,7 +12,7 @@ services:
       - "3306:3306"
 
   web:
-    image: php:apache
+    build: ./.docker/apache
     container_name: "apache_container"
     env_file:
       - ./.env
@@ -23,6 +23,8 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html/
+    environment:
+      APACHE_DOCUMENT_ROOT: "/var/www/html/public"
 
   php:
     image: php:8.0-fpm
