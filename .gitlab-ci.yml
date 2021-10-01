@@ -1,5 +1,5 @@
 stage:
-  - ok
+  - script
 
-jobs:ok:
+job:script:
   script: echo "ok"
