@@ -1,13 +1,18 @@
 stages:
-  - phpstan
+  - static_analysis
   - test
-
-phpstan:
-  script: phpstan analyse --level 2 -c ./ci/phpstan.neon app
-  allow_failure: true
 
 before_script:
   - bash ci/docker_install.sh > /dev/null
+
+before_script:
+  - apt-get update && apt-get install -y zip libzip-dev unzip git libfreetype6-dev libjpeg62-turbo-dev libxslt-dev libpng-dev && docker-php-ext-install -j$(nproc) gd xsl intl zip
+  - curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  - composer install
+
+static_analysis:
+  script:
+    - php --version && php -d memory_limit=512M vendor/bin/phpstan analyse -c phpstan.neon
   
 test:8.0:
   image: php:8.0

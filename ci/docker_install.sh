@@ -12,10 +12,3 @@ apt-get install git -yqq
 # Install phpunit, the tool that we will use for testing
 curl --location --output /usr/local/bin/phpunit "https://phar.phpunit.de/phpunit.phar"
 chmod +x /usr/local/bin/phpunit
-
-#install composer
-curl -s https://getcomposer.org/installer
-
-sudo mv composer.phar /usr/local/bin/composer
-
-composer install
